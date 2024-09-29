@@ -66,7 +66,7 @@ const technologies = [
   },
   {
     name: "CSS 3",
-    icon: css,
+    icon: docker,
   },
   {
     name: "JavaScript",
@@ -78,10 +78,6 @@ const technologies = [
   },
   {
     name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Django",
     icon: reactjs,
   },
   {
