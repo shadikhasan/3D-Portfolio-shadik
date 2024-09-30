@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { BallCanvas } from "./canvas";
+import { BallCanvas } from "./canvas"; // Make sure you keep BallCanvas for non-mobile devices
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
@@ -39,7 +39,61 @@ const backendTechnologies = [
   { name: "Git", icon: git },
 ];
 
+// Reusable component for technology display
+const TechnologyGrid = ({ title, technologies, isMobile }) => (
+  <div className="relative z-10 mt-20">
+    <h3 className="text-center text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 to-blue-400 inline-block py-1 px-2 rounded-md shadow-lg">
+      {title}
+    </h3>
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-center items-center">
+      {technologies.map((technology) => (
+        <div
+          key={technology.name}
+          className="group w-24 h-24 sm:w-28 sm:h-28 flex justify-center items-center bg-white bg-opacity-5 rounded-full shadow-2xl transform transition-all duration-700 hover:scale-125 hover:bg-opacity-20 hover:shadow-purple-500/50 hover:shadow-lg relative"
+        >
+          {isMobile ? (
+            // Use regular img with lazy loading for mobile devices
+            <img
+              src={technology.icon}
+              alt={technology.name}
+              loading="lazy"
+              className="w-full h-full object-contain rounded-full"
+            />
+          ) : (
+            // Use BallCanvas for non-mobile devices
+            <BallCanvas icon={technology.icon} />
+          )}
+          {/* Always Visible Name Tooltip */}
+          <div className="absolute bottom-[-30px] w-full text-center transition-opacity duration-300">
+            <span className="text-white text-sm rounded-md px-2 py-1">
+              {technology.name}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const Tech = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if the device is mobile based on screen width
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust this breakpoint as needed
+    };
+
+    // Run on initial render
+    checkIfMobile();
+
+    // Add event listener to handle screen resizing
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   return (
     <section className="relative w-full py-20 px-6 bg-transparent text-white overflow-hidden">
       {/* Title Section with Animation */}
@@ -48,53 +102,17 @@ const Tech = () => {
         <h2 className={`${styles.sectionHeadText} text-center`}>Skills & Expertise.</h2>
       </motion.div>
 
-      {/* Frontend Technologies Grid */}
-      <div className="relative z-10 mt-20">
-        <h3 className="text-center text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 to-blue-400 inline-block py-1 px-2 rounded-md shadow-lg">
-          Frontend Technologies
-        </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-center items-center">
-          {frontendTechnologies.map((technology) => (
-            <div
-              key={technology.name}
-              className="group w-24 h-24 sm:w-28 sm:h-28 flex justify-center items-center bg-white bg-opacity-5 rounded-full shadow-2xl transform transition-all duration-700 hover:scale-125 hover:bg-opacity-20 hover:shadow-purple-500/50 hover:shadow-lg relative"
-            >
-              <BallCanvas icon={technology.icon} />
-              {/* Always Visible Name Tooltip */}
-              <div className="absolute bottom-[-30px] w-full text-center transition-opacity duration-300">
-                <span className="text-white text-sm rounded-md px-2 py-1">
-                  {technology.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-
-    {/* Backend Technologies Grid */}
-    <div className="relative z-10 mt-20">
-      <h3 className="text-center text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 to-blue-400 inline-block py-1 px-2 rounded-md shadow-lg">
-        Backend Technologies
-      </h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-center items-center">
-        {backendTechnologies.map((technology) => (
-          <div
-            key={technology.name}
-            className="group w-24 h-24 sm:w-28 sm:h-28 flex justify-center items-center bg-white bg-opacity-5 rounded-full shadow-2xl transform transition-all duration-700 hover:scale-125 hover:bg-opacity-20 hover:shadow-purple-500/50 hover:shadow-lg relative"
-          >
-            <BallCanvas icon={technology.icon} />
-            {/* Always Visible Name Tooltip */}
-            <div className="absolute bottom-[-30px] w-full text-center transition-opacity duration-300">
-              <span className="text-white text-sm rounded-md px-2 py-1">
-                {technology.name}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
+      {/* Frontend and Backend Technologies */}
+      <TechnologyGrid
+        title="Frontend Technologies"
+        technologies={frontendTechnologies}
+        isMobile={isMobile}
+      />
+      <TechnologyGrid
+        title="Backend Technologies"
+        technologies={backendTechnologies}
+        isMobile={isMobile}
+      />
 
       {/* Smaller Floating Background Elements */}
       <div className="absolute top-10 left-1/4 w-36 h-36 bg-indigo-400 rounded-full blur-[80px] opacity-20 animate-pulse-slow" />
