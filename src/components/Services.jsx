@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import djangoImage from "../assets/tech/django.png"; // Update this path
-import frontendImage from "../assets/tech/reactjs.png";
+import frontendImage from "../assets/service/react.png";
 import databaseImage from "../assets/tech/postgresql.png";
 import deploymentImage from "../assets/tech/docker.png";
 import constructionImage from "../assets/service/construction.png";
 import test from "../assets/service/test.avif";
 import ecommerceImage from "../assets/service/ecommerce.png";
+import androidImage from "../assets/service/android.jpg";
+import wordpressImage from "../assets/service/ecommerce.png";
 import portfolioImage from "../assets/service/portfolio.png";
 import { fadeIn, textVariant } from "../utils/motion";
 
@@ -37,12 +39,7 @@ const servicesData = [
   {
     name: "Android Application Development",
     description: "Building any type of application to meet your needs.",
-    image: frontendImage, // Replace with your Android image if available
-  },
-  {
-    name: "WordPress Design",
-    description: "Creating beautiful and functional WordPress websites.",
-    image: frontendImage, // Replace with your WordPress image if available
+    image: androidImage, // Replace with your Android image if available
   },
   {
     name: "Portfolio Website",
