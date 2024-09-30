@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import MouseTracingCanvas from './canvas/MouseTracingCanvas';
+import SocialMediaIcons from "./SocialMediaIcons";
 
 const Hero = () => {
   // State to determine if the screen is mobile
@@ -33,7 +34,7 @@ const Hero = () => {
           <div className='w-1 sm:h-80 h-40 violet-gradient' />
         </div>
 
-        <div>
+        <div className="flex flex-col">
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm <span className='text-[#915EFF]'>SHADIK</span>
           </h1>
@@ -41,6 +42,9 @@ const Hero = () => {
             I develop Robust web applications <br className='sm:block hidden' />
             with Django and React
           </p>
+          <div className="flex justify-start z-10"> {/* Added z-10 for higher stacking */}
+            <SocialMediaIcons />
+          </div>
         </div>
       </div>
 
