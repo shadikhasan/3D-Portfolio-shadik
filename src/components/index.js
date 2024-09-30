@@ -8,6 +8,7 @@ import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
+import Services from './Services';
 
 
 export {
@@ -19,6 +20,7 @@ export {
   Works,
   Feedbacks,
   Contact,
+  Services,
   CanvasLoader,
   EarthCanvas, 
   BallCanvas, 

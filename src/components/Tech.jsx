@@ -45,7 +45,7 @@ const Tech = () => {
       {/* Title Section with Animation */}
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>Technologies I Use</p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>Skills & Expertise</h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Skills & Expertise.</h2>
       </motion.div>
 
       {/* Frontend Technologies Grid */}

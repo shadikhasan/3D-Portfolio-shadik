@@ -37,6 +37,7 @@ export const navLinks = [
     id: "work",
     title: "Works",
   },
+  { id: "services", title: "Services" },
   {
     id: "contact",
     title: "Contact",
@@ -61,7 +62,6 @@ const services = [
     icon: docker,
   },
 ];
-
 
 const technologies = [
   {
@@ -225,7 +225,6 @@ const projects = [
         name: "postgresql",
         color: "pink-text-gradient",
       },
-     
     ],
     image: tesla, // Replace with your actual image variable
     source_code_link: "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
