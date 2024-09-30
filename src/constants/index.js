@@ -23,6 +23,9 @@ import {
   jobit,
   tripguide,
   threejs,
+  django,
+  python,
+  postgresql,
 } from "../assets";
 
 export const navLinks = [
@@ -32,7 +35,7 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Work",
+    title: "Works",
   },
   {
     id: "contact",
@@ -43,11 +46,11 @@ export const navLinks = [
 const services = [
   {
     title: "Django Developer",
-    icon: reactjs,
+    icon: django,
   },
   {
     title: "React Developer",
-    icon: mobile,
+    icon: reactjs,
   },
   {
     title: "Backend Expert",
@@ -61,12 +64,12 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
+    name: "Python",
+    icon: python,
   },
   {
-    name: "CSS 3",
-    icon: docker,
+    name: "Django",
+    icon: django,
   },
   {
     name: "JavaScript",
@@ -89,8 +92,8 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "Node JS",
-    icon: nodejs,
+    name: "PostgreSQL",
+    icon: postgresql,
   },
   {
     name: "MongoDB",

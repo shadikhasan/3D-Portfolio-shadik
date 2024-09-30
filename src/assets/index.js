@@ -7,8 +7,11 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
-import css from "./tech/css.png";
+import django from "./tech/django.png";
+import python from "./tech/python.png";
 import docker from "./tech/docker.png";
+import postgresql from "./tech/postgresql.png";
+import css from "./tech/css.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
@@ -59,4 +62,7 @@ export {
   carrent,
   jobit,
   tripguide,
+  django,
+  python,
+  postgresql,
 };
