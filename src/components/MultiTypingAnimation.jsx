@@ -5,7 +5,9 @@ const MultiTypingAnimation = ({
   texts = ['Professional in Full Stack Web application.',
             'Professional in Frontend application.', 
             'Professional in Django Backend application.', 
-            'Professional in React application.'], 
+            'Professional in Django REST API.', 
+            'Professional in React application.'
+          ], 
   speed = 50, 
   delay = 1000 
 }) => {
