@@ -15,7 +15,10 @@ const App = () => {
         <About />
         <Experience />
         <Tech />
-        <Services /> {/* Added Services section here */}
+        <div className="bg-gradient-to-bl from-slate-900 to-cyan-700 w-full rounded-[10px]">
+          <Services />
+        </div>
+        
         <Works />
         <Feedbacks />
         

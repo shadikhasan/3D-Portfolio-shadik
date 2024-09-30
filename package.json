@@ -23,9 +23,11 @@
     "react-parallax-tilt": "^1.7.244",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.8.1",
+    "react-slick": "^0.30.2",
     "react-tilt": "^0.1.4",
     "react-type-animation": "^3.2.0",
     "react-vertical-timeline-component": "^3.6.0",
+    "slick-carousel": "^1.8.1",
     "three": "^0.149.0"
   },
   "devDependencies": {

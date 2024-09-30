@@ -1,6 +1,7 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
+import { SectionWrapper } from "../hoc";
 
 import { styles } from "../styles";
 import djangoImage from "../assets/tech/django.png"; // Update this path
@@ -58,21 +59,21 @@ const servicesData = [
   },
 ];
 
-const ServiceCard = ({ index, title, description, icon }) => (
-  <Tilt className='xs:w-[300px] sm:w-[350px] w-full' tiltMaxAngleX={45} tiltMaxAngleY={45} scale={1} transitionSpeed={450}>
+const ServiceCard = ({ index, name, description, image }) => (
+  <Tilt className='xs:w-[300px] sm:w-[350px] w-full'>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      whileHover={{ scale: 1.1 }} // Added hover animation for scaling effect
-      whileTap={{ scale: 0.95 }} // Added tap effect
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-transform transform'
+      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
     >
-      <div className='bg-tertiary rounded-[20px] py-5 px-8 min-h-[300px] flex justify-evenly items-center flex-col text-center'>
+      <div className='bg-tertiary rounded-[20px] py-5 px-12 flex flex-col justify-between h-[350px]'>
         <img
-          src={icon}
-          alt={title}
-          className='w-84 h-64 object-contain mb-4' // Adjusted icon size for uniformity
+          src={image}
+          alt={name}
+          className='w-full h-48 object-cover' // Set height and use object-cover
         />
-        <h3 className='text-white text-[20px] font-bold'>{title}</h3>
+        <h3 className='text-white text-[20px] font-bold text-center'>
+          {name}
+        </h3>
         <p className='text-center text-sm text-white-100'>
           {description}
         </p>
@@ -81,49 +82,27 @@ const ServiceCard = ({ index, title, description, icon }) => (
   </Tilt>
 );
 
+
+
 const Services = () => {
   return (
-    <motion.section 
-      id="services" 
-      className="p-10 bg-gray-800 text-white"
-      initial={{ opacity: 0, y: 20 }} // Initial animation values
-      animate={{ opacity: 1, y: 0 }} // Final animation values
-      transition={{ duration: 1 }} // Control the speed of the animation
-    >
-      {/* Title Section with Animation */}
-      <motion.div variants={textVariant()} className="text-center">
-        <motion.p 
-          className={`${styles.sectionSubText}`}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} text-center`}>
           I offer a variety of services to meet your needs
-        </motion.p>
-        <motion.h2 
-          className={`${styles.sectionHeadText}`}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
+        </p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>
           My Services.
-        </motion.h2>
+        </h2>
       </motion.div>
 
-      {/* Services Cards Section */}
-      <div className="mt-20 flex flex-wrap justify-center gap-10">
+      <div className='mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
         {servicesData.map((service, index) => (
-          <ServiceCard
-            key={service.name}
-            index={index}
-            title={service.name}
-            description={service.description}
-            icon={service.image}
-          />
+          <ServiceCard key={service.name} index={index} {...service} />
         ))}
       </div>
-    </motion.section>
+    </>
   );
 };
 
-export default Services;
+export default SectionWrapper(Services, "services");
