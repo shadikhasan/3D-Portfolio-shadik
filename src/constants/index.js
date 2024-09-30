@@ -62,6 +62,7 @@ const services = [
   },
 ];
 
+
 const technologies = [
   {
     name: "Python",
