@@ -62,7 +62,9 @@ const ServiceCard = ({ index, title, description, icon }) => (
   <Tilt className='xs:w-[300px] sm:w-[350px] w-full' tiltMaxAngleX={45} tiltMaxAngleY={45} scale={1} transitionSpeed={450}>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-transform transform hover:scale-105'
+      whileHover={{ scale: 1.1 }} // Added hover animation for scaling effect
+      whileTap={{ scale: 0.95 }} // Added tap effect
+      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-transform transform'
     >
       <div className='bg-tertiary rounded-[20px] py-5 px-8 min-h-[300px] flex justify-evenly items-center flex-col text-center'>
         <img
@@ -81,24 +83,46 @@ const ServiceCard = ({ index, title, description, icon }) => (
 
 const Services = () => {
   return (
-    <section id="services" className="p-10 bg-gray-800 text-white">
+    <motion.section 
+      id="services" 
+      className="p-10 bg-gray-800 text-white"
+      initial={{ opacity: 0, y: 20 }} // Initial animation values
+      animate={{ opacity: 1, y: 0 }} // Final animation values
+      transition={{ duration: 1 }} // Control the speed of the animation
+    >
       {/* Title Section with Animation */}
       <motion.div variants={textVariant()} className="text-center">
-        <p className={`${styles.sectionSubText}`}>I offer a variety of services to meet your needs</p>
-        <h2 className={`${styles.sectionHeadText}`}>My Services.</h2>
+        <motion.p 
+          className={`${styles.sectionSubText}`}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          I offer a variety of services to meet your needs
+        </motion.p>
+        <motion.h2 
+          className={`${styles.sectionHeadText}`}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          My Services.
+        </motion.h2>
       </motion.div>
+
+      {/* Services Cards Section */}
       <div className="mt-20 flex flex-wrap justify-center gap-10">
         {servicesData.map((service, index) => (
           <ServiceCard
             key={service.name}
             index={index}
             title={service.name}
-            description={service.description} // Pass description to ServiceCard
+            description={service.description}
             icon={service.image}
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
