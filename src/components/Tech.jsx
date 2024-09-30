@@ -49,7 +49,6 @@ const Tech = () => {
       </motion.div>
 
       {/* Frontend Technologies Grid */}
-      {/* Backend Technologies Grid */}
       <div className="relative z-10 mt-20">
         <h3 className="text-center text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 to-blue-400 inline-block py-1 px-2 rounded-md shadow-lg">
           Frontend Technologies

@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
@@ -9,8 +8,26 @@ const Computers = ({ isMobile }) => {
 
   if (error) {
     console.error("Error loading GLTF model:", error);
-    return <CanvasLoader />; // Fallback loader in case of error
+    return <CanvasLoader />;
   }
+
+  if (!scene) {
+    return <CanvasLoader />;
+  }
+
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh && child.geometry) {
+        const positionArray = child.geometry.attributes.position.array;
+        for (let i = 0; i < positionArray.length; i++) {
+          if (isNaN(positionArray[i])) {
+            console.error(`NaN value found in geometry at index ${i}`);
+            return;
+          }
+        }
+      }
+    });
+  }, [scene]);
 
   return (
     <mesh>
@@ -60,7 +77,6 @@ const ComputersCanvas = () => {
         />
         <Computers isMobile={isMobile} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
