@@ -20,7 +20,10 @@ const AboutMe = () => {
               <p className="text-gray-300"><strong>Email:</strong> <a href="mailto:shadik.sk420@gmail.com" className="hover:underline">shadik.sk420@gmail.com</a></p>
               <p className="text-gray-300">
                 <strong>Website:</strong>{" "}
-                <a href="https://www.techtrickbangla.com" className="text-[#915EFF] hover:underline">
+                <a 
+                  href="https://www.techtrickbangla.com"
+                  target="_blank" 
+                  className="text-[#915EFF] hover:underline">
                   https://www.techtrickbangla.com
                 </a>
               </p>
@@ -29,12 +32,14 @@ const AboutMe = () => {
             <div className="mt-6 flex space-x-4">
               <a
                 href={cv}
+                target="_blank"
                 className="font-bold bg-gradient-to-r from-[#915EFF] to-[#7a52d5] text-white py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
                 download
               >
                 Download CV
               </a>
               <a
+                target="_blank"
                 href="https://www.facebook.com/shadik.mahmud.01/"
                 className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md hover:bg-gray-700 transition-all duration-200"
               >

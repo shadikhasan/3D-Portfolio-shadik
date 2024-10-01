@@ -71,9 +71,10 @@ const ServiceCard = ({ index, name, icon, description }) => (
         <img
           src={icon}
           alt={name}
-          className='w-full h-16 lg:h-48 object-contain mb-4'
+          className='w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[128px] lg:h-[128px] object-cover mb-4' // Responsive sizes
         />
-        <h3 className='text-white text-[18px] font-semibold'>
+
+        <h3 id={`service-${index}-name`} className='text-white text-[18px] font-semibold'>
           {name}
         </h3>
         <p className='text-white text-[14px] mt-2 px-2'>
