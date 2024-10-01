@@ -20,61 +20,63 @@ const servicesData = [
   {
     name: "Django Development",
     description: "Expert in building robust and scalable web applications using Django.",
-    image: djangoImage,
+    icon: djangoImage,
   },
   {
     name: "React Development",
     description: "Creating responsive and dynamic user interfaces with React.",
-    image: frontendImage,
+    icon: frontendImage,
   },
   {
     name: "Database Management",
     description: "Proficient in designing and managing relational databases.",
-    image: databaseImage,
+    icon: databaseImage,
   },
   {
     name: "Deployment & DevOps",
     description: "Experience in deploying applications and managing cloud infrastructure.",
-    image: deploymentImage,
+    icon: deploymentImage,
   },
   {
     name: "Android Application Development",
     description: "Building any type of application to meet your needs.",
-    image: androidImage, // Replace with your Android image if available
+    icon: androidImage, // Replace with your Android image if available
   },
   {
     name: "Portfolio Website",
     description: "Designing personalized portfolio websites to showcase your work.",
-    image: portfolioImage,
+    icon: portfolioImage,
   },
   {
     name: "E-Commerce Website",
     description: "Developing online stores with seamless shopping experiences.",
-    image: ecommerceImage, // Replace with your E-Commerce image if available
+    icon: ecommerceImage, // Replace with your E-Commerce image if available
   },
   {
     name: "Construction Website",
     description: "Creating professional websites for construction companies.",
-    image: test,
+    icon: test,
   },
 ];
 
-const ServiceCard = ({ index, name, description, image }) => (
-  <Tilt className='xs:w-[300px] sm:w-[350px] w-full'>
+const ServiceCard = ({ index, name, icon, description }) => (
+  <Tilt className='w-full'>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='w-full bg-white p-[1px] rounded-[20px] shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 hover:scale-105'
     >
-      <div className='bg-tertiary rounded-[20px] py-5 px-12 flex flex-col justify-between h-[350px]'>
+      <div
+        className='bg-tertiary rounded-[20px] py-6 px-6 min-h-[320px] flex justify-evenly items-center flex-col text-center'
+      >
         <img
-          src={image}
+          src={icon}
           alt={name}
-          className='w-full h-48 object-cover' // Set height and use object-cover
+          className='w-full h-16 lg:h-48 object-contain mb-4'
         />
-        <h3 className='text-white text-[20px] font-bold text-center'>
+        <h3 className='text-white text-[18px] font-semibold'>
           {name}
         </h3>
-        <p className='text-center text-sm text-white-100'>
+        <p className='text-white text-[14px] mt-2 px-2'>
           {description}
         </p>
       </div>
@@ -92,11 +94,11 @@ const Services = () => {
           I offer a variety of services to meet your needs
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          My Services.
+        My Services.
         </h2>
       </motion.div>
 
-      <div className='mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+      <div className='mt-10 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 px-4'>
         {servicesData.map((service, index) => (
           <ServiceCard key={service.name} index={index} {...service} />
         ))}
