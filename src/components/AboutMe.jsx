@@ -3,7 +3,7 @@ import React from "react";
 const AboutMe = () => {
   const profileImage =
     "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin0utrL7ZfBJDsizVPXbkOxmk8Ih4VnqRgmZKIGPze-xtn6Q7bjK0GmliNyt7flzyWmuB6JtwAQA95cGPUDQwlwCNJUusRjVDA0Xn42kvLCVywf4uoC3VSBdODv2d90h1Kd7rElgrNkzw4/";
-  const cv = "#"; // Replace with the actual path to your CV
+  const cv = "https://drive.google.com/file/d/16V4W-3zfpfdx671MkIicTx8i-9pRI7gZ/"; // Replace with the actual path to your CV
 
   return (
     <div className="p-6 bg-gradient-to-bl from-slate-900 to-cyan-700 rounded-lg shadow-lg">
@@ -35,7 +35,7 @@ const AboutMe = () => {
                 Download CV
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/shadik.mahmud.01/"
                 className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md hover:bg-gray-700 transition-all duration-200"
               >
                 Hire Me
