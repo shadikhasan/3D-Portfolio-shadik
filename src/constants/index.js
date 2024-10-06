@@ -206,7 +206,7 @@ const projects = [
     ],
     image: tesla, // Replace with your actual image variable
     source_code_link:
-      "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
+      "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
   },
   {
     name: "Library Management System",
@@ -227,7 +227,7 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable
-    source_code_link: "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
+    source_code_link: "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
   },
 ];
 
