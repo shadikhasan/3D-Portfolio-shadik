@@ -205,7 +205,9 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable
-    source_code_link: "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
+    live_link:"#",
+    source_code_link:
+      "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
   },
   {
     name: "Library Management System",
@@ -226,11 +228,11 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable
-    source_code_link:
-      "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
+    live_link:"#",
+    source_code_link: "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
   },
   {
-    name: "My Blog Site", // Name of your blog site app
+    name: "My Blog Site",
     description:
       "A user-friendly blogging platform that allows users to create, read, and manage blog posts with a clean interface and responsive design.",
     tags: [
@@ -248,6 +250,9 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable for the blog site
-    source_code_link: "https://github.com/shadikhasan/BlogSiteApp.git", // Replace with the actual link to your blog site repo
+    source_code_link: "https://github.com/shadikhasan/BlogSiteApp", // Replace with the actual link to your blog site repo
+    live_link: "https://frontendblogsitelive.onrender.com/", // Add your live link here
   },
 ];
+
+export { services, technologies, experiences, testimonials, projects };
