@@ -1,12 +1,20 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence  } from "framer-motion";
+
+import { useState } from "react";
 
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+
+const marqueeVariants = {
+  hidden: { opacity: 0, y: -20 }, // Initial hidden state
+  visible: { opacity: 1, y: 0 }, // Visible state
+  exit: { opacity: 0, y: -20, transition: { duration: 0.5 } }, // Exit animation
+};
 
 const ProjectCard = ({
   index,
@@ -78,6 +86,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
+  const [showMarquee, setShowMarquee] = useState(true); // State to show/hide marquee
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -97,6 +106,35 @@ const Projects = () => {
           and manage projects effectively.
         </motion.p>
       </div>
+
+      {/* AnimatePresence for smooth removal */}
+      <AnimatePresence>
+          {showMarquee && (
+            <motion.div
+              className="relative mt-5 p-3 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg border-2 border-indigo-300 flex items-center"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={marqueeVariants}
+            >
+              <marquee
+                className="text-white font-semibold"
+                behavior="scroll"
+                direction="left"
+                scrollamount="6"
+              >
+                ⚠️ Note: Live site is slower due to free hosting. Thank you for your patience!
+              </marquee>
+              {/* Close button */}
+              <button
+                onClick={() => setShowMarquee(false)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white text-indigo-500 font-bold py-1 px-3 rounded-full hover:bg-gray-100 transition-all"
+              >
+                X
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index) => (
