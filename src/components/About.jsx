@@ -30,6 +30,7 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -52,6 +53,12 @@ const About = () => {
         solutions that effectively address real-world challenges.
       </motion.p>
 
+      <button
+        className="mt-5 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+      >
+        <a href="#about-me" className="text-white">See About Me</a>
+      </button>
+    
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />

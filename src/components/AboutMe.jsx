@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionWrapper } from "../hoc";
 
 const AboutMe = () => {
   const profileImage =
@@ -62,4 +63,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default SectionWrapper(AboutMe, "about-me");
