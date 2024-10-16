@@ -234,7 +234,7 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable
-    live_link:"#",
+    live_link:"https://library-management-system-1i57.onrender.com/",
     source_code_link: "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
   },
   {
