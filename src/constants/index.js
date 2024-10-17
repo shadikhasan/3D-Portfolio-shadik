@@ -27,6 +27,9 @@ import {
   python,
   postgresql,
   add,
+  wms,
+  lms,
+  blog,
 } from "../assets";
 
 export const navLinks = [
@@ -211,7 +214,7 @@ const projects = [
         color: "green-text-gradient",
       },
     ],
-    image: tesla, // Replace with your actual image variable
+    image: wms, // Replace with your actual image variable
     source_code_link:
       "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
   },
@@ -233,7 +236,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tesla, // Replace with your actual image variable
+    image: lms, // Replace with your actual image variable
     live_link:"https://library-management-system-1i57.onrender.com/",
     source_code_link: "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
   },
@@ -259,7 +262,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tesla, // Replace with your actual image variable for the blog site
+    image: blog, // Replace with your actual image variable for the blog site
     source_code_link: "https://github.com/shadikhasan/BlogSiteApp", // Replace with the actual link to your blog site repo
     live_link: "https://frontendblogsitelive.onrender.com/", // Add your live link here
   },

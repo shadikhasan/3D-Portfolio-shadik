@@ -32,7 +32,10 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
-import add from "./company/add.png";
+import add from "./project/add.png";
+import wms from "./project/wms.png";
+import lms from "./project/lms.png";
+import blog from "./project/blog.png";
 
 export {
   logo,
@@ -67,4 +70,7 @@ export {
   python,
   postgresql,
   add,
+  wms,
+  lms,
+  blog,
 };
