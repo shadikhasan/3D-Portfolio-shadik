@@ -254,6 +254,10 @@ const projects = [
         name: "docker",
         color: "green-text-gradient",
       },
+      {
+        name: "postgresql",
+        color: "pink-text-gradient",
+      },
     ],
     image: tesla, // Replace with your actual image variable for the blog site
     source_code_link: "https://github.com/shadikhasan/BlogSiteApp", // Replace with the actual link to your blog site repo
