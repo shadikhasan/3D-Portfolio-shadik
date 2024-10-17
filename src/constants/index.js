@@ -238,7 +238,7 @@ const projects = [
     source_code_link: "https://github.com/shadikhasan/Library-Management-System", // Replace with actual link
   },
   {
-    name: "My Blog Site",
+    name: "Blog Site App",
     description:
       "A user-friendly blogging platform that allows users to create, read, and manage blog posts with a clean interface and responsive design.",
     tags: [
