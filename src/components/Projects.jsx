@@ -16,6 +16,7 @@ const marqueeVariants = {
   exit: { opacity: 0, y: -20, transition: { duration: 0.5 } }, // Exit animation
 };
 
+
 const ProjectCard = ({
   index,
   name,
@@ -23,54 +24,77 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
-  live_link, // Add live_link to props
+  live_link,
 }) => {
+  // Check if it's the "See More Projects" card
+  const isSeeMoreCard = name === "See More Projects";
+
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className="w-full sm:w-[360px]" // Ensuring consistent width
+    >
       <Tilt
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        className={`${
+          isSeeMoreCard
+            ? "bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg"
+            : "bg-tertiary shadow-md"
+        } p-5 rounded-2xl w-full h-[500px] transition-transform transform hover:scale-105`} // Standard height for all cards
       >
-        <div className='relative w-full h-[230px]'>
+        <div className="relative w-full h-[230px]">
+          {/* Show the image for normal cards */}
           <img
             src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
+            alt={`${name} image`}
+            className="w-full h-full object-cover rounded-2xl"
           />
 
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mr-2 transition duration-300 ease-in-out transform hover:scale-110' // Added margin for spacing
-            >
-              <img
-                src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
-                title="Souce Code"
-              />
-            </div>
-            {/* Live link with hover effect */}
-            <div
-              onClick={() => window.open(live_link, "_blank")}
-              className='bg-gradient-500 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-green-500'
-            >
-              <span className="text-white text-sm text-center font-bold" title="Visit the live site">Live</span>
-            </div>
+          {/* Conditionally render source code and live links for normal cards */}
+          {!isSeeMoreCard && (
+            <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+              {/* Source code button */}
+              {source_code_link && (
+                <div
+                  onClick={() => window.open(source_code_link, "_blank")}
+                  className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mr-2 transition duration-300 ease-in-out transform hover:scale-110"
+                >
+                  <img
+                    src={github}
+                    alt="source code"
+                    className="w-1/2 h-1/2 object-contain"
+                    title="Source Code"
+                  />
+                </div>
+              )}
 
-          </div>
+              {/* Live link button */}
+              {live_link && (
+                <div
+                  onClick={() => window.open(live_link, "_blank")}
+                  className="bg-gradient-500 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-green-500"
+                >
+                  <span className="text-white text-sm text-center font-bold" title="Visit the live site">Live</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+        <div className="mt-5">
+          <h3 className={`font-bold text-[24px] ${isSeeMoreCard ? "text-white" : "text-white"}`}>
+            {name}
+          </h3>
+          <p className={`mt-2 text-white text-secondary text-[14px] ${isSeeMoreCard ? "text-gray-300" : "text-secondary"}`}>
+            {description}
+          </p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
+        <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
@@ -80,10 +104,34 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
+
+        {/* "See More Projects" button */}
+        {isSeeMoreCard && (
+          <div className="flex flex-col items-center justify-center mt-5 space-y-4">
+            {/* GitHub Icon with Link */}
+            <div className="flex justify-center">
+              <a
+                href="https://github.com/shadikhasan?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 rounded-full transition duration-300 ease-in-out transform hover:scale-110"
+              >
+                <img
+                  src={github}
+                  alt="GitHub Logo"
+                  className="w-10 h-10 object-contain"
+                  title="Visit GitHub"
+                />
+              </a>
+            </div>
+          </div>
+        )}
       </Tilt>
     </motion.div>
   );
 };
+
+
 
 const Projects = () => {
   const [showMarquee, setShowMarquee] = useState(true); // State to show/hide marquee

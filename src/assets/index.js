@@ -32,6 +32,7 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import add from "./company/add.png";
 
 export {
   logo,
@@ -65,4 +66,5 @@ export {
   django,
   python,
   postgresql,
+  add,
 };

@@ -54,18 +54,13 @@ const About = () => {
       </motion.p>
 
       <a
-  href="#about-me"
-  className="relative mt-3 inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-2xl backdrop-blur-lg bg-opacity-60 hover:bg-opacity-80 transition-all duration-300 ease-in-out transform hover:scale-105 hover:translate-y-[-2px]"
-  aria-label="See About Me section"
->
-  See About Me
-  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 hover:opacity-25 transition-opacity duration-300 ease-in-out"></span>
-</a>
-
-
-
-
-
+        href="#about-me"
+        className="relative mt-3 inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-2xl backdrop-blur-lg bg-opacity-60 hover:bg-opacity-80 transition-all duration-300 ease-in-out transform hover:scale-105 hover:translate-y-[-2px]"
+        aria-label="See About Me section"
+      >
+        See About Me
+        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 hover:opacity-25 transition-opacity duration-300 ease-in-out"></span>
+      </a>
 
     
       <div className='mt-20 flex flex-wrap gap-10'>

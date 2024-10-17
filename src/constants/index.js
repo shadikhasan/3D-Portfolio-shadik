@@ -26,6 +26,7 @@ import {
   django,
   python,
   postgresql,
+  add,
 } from "../assets";
 
 export const navLinks = [
@@ -211,7 +212,6 @@ const projects = [
       },
     ],
     image: tesla, // Replace with your actual image variable
-    live_link:"#",
     source_code_link:
       "https://github.com/shadikhasan/Waste-Management-System", // Replace with actual link
   },
@@ -259,6 +259,14 @@ const projects = [
     source_code_link: "https://github.com/shadikhasan/BlogSiteApp", // Replace with the actual link to your blog site repo
     live_link: "https://frontendblogsitelive.onrender.com/", // Add your live link here
   },
+  {
+    name: "See More Projects",
+    description: "Check out all my projects on GitHub! Click the github icon below.",
+    tags: [],
+    image: add, // Replace with your actual image variable for the blog site
+    source_code_link: "https://github.com/shadikhasan?tab=repositories", // Replace with the actual link to your blog site repo
+  }
+  
 ];
 
 export { services, technologies, experiences, testimonials, projects };
