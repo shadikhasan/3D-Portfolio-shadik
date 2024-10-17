@@ -17,17 +17,28 @@ const Computers = ({ isMobile }) => {
 
   useEffect(() => {
     scene.traverse((child) => {
-      if (child.isMesh && child.geometry) {
+      if (child.isMesh && child.geometry && child.geometry.attributes.position) {
         const positionArray = child.geometry.attributes.position.array;
         for (let i = 0; i < positionArray.length; i++) {
           if (isNaN(positionArray[i])) {
-            console.error(`NaN value found in geometry at index ${i}`);
-            return;
+            console.error(`NaN value found in geometry at index ${i} in object: ${child.name || 'Unnamed Mesh'}`);
           }
+        }
+  
+        // After ensuring no NaN values, recompute the bounding sphere
+        child.geometry.computeBoundingSphere();
+  
+        if (isNaN(child.geometry.boundingSphere.radius)) {
+          console.error(
+            'THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "position" attribute likely has NaN values.',
+            child.geometry
+          );
         }
       }
     });
   }, [scene]);
+  
+  
 
   return (
     <mesh>
