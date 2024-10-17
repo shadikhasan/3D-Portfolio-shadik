@@ -120,7 +120,7 @@ const ProjectCard = ({
                   src={github}
                   alt="GitHub Logo"
                   className="w-10 h-10 object-contain"
-                  title="Visit GitHub"
+                  title="Visit my Repositories"
                 />
               </a>
             </div>
